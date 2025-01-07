@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">myApp</string>
-    <string name="title_activity_main">myApp</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">Fast Inventory CRM</string>
+    <string name="title_activity_main">Fast Inventory CRM</string>
+    <string name="package_name">com.fast.inventory.crm</string>
+    <string name="custom_url_scheme">com.fast.inventory.crm</string>
 </resources>
