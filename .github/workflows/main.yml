@@ -41,3 +41,13 @@ jobs:
       run: |
         curl -F "file=@android/app/build/outputs/apk/debug/app-debug.apk" https://file.io > fileio_url.txt
         cat fileio_url.txt
+        
+    - name: Send APK to Telegram
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      run: |
+        curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendDocument" \
+        -F chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+        -F document=@android/app/build/outputs/apk/debug/app-debug.apk
+        
