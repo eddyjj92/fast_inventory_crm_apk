@@ -1,5 +1,5 @@
 {
-  "name": "myApp",
+  "name": "fast_inventory_crm_apk",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -39,5 +39,5 @@
     "vitest": "^0.34.6",
     "vue-tsc": "^2.1.10"
   },
-  "description": "An Ionic project"
+  "description": "Aplicación móvil Fast Inventory CRM, gestión y manejo de inventarios para emprendedores."
 }

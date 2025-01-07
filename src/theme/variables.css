@@ -1,2 +1,15 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+
+.custom-alert {
+    --background: var(--ion-color-light-shade);; /* Color de fondo del botón */
+}
+
+button.alert-button.alert-button-confirm {
+    color: var(--ion-color-danger-contrast);
+    background-color: var(--ion-color-danger);
+}
+
+.md button.alert-button.alert-button-confirm {
+    border-radius: 4px;
+}
