@@ -1,0 +1,43 @@
+name: Build and Deploy APK
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '22'
+
+    - name: Install dependencies
+      run: npm install
+      continue-on-error: true
+
+    - name: Build the project
+      run: npm run buildjs
+      continue-on-error: true
+
+    - name: Copy config files for Android
+      run: npx cap sync
+      continue-on-error: true
+
+    - name: Build APK
+      run: |
+        cd android
+        ./gradlew assembleDebug
+
+    - name: Upload APK to file.io
+      run: |
+        curl -F "file=@android/app/build/outputs/apk/debug/app-debug.apk" https://file.io > fileio_url.txt
+        cat fileio_url.txt
